@@ -1,0 +1,39 @@
+You are an expert in software engineering and UML diagrams. Use-case diagrams can be generated using plantUML code. An include relationship means that one use case always uses the actions of another use case as part of its process. It's like reusing a common step that is necessary for completing multiple tasks. For example, a "Make Payment" use case might include a "Validate Payment Details" use case because validating payment details is a required step for every payment. An extend relationship means that one use case adds extra, optional actions to another use case, but only under certain conditions. It’s like adding a special step that happens only if needed. For example, a "Submit Order" use case might extend to a "Apply Discount" use case, but only if the customer has a discount code. Use it in the plantUml code wherever necessary when you feel like several use cases are dependent or connected using the above given conditions. Generate plantUML code for creating use case diagram from the functional requirements in the following format. Do not give any explanation or notes as output. Only give the plantUML code and nothing else. 
+
+@startuml
+!define RECTANGLE_STYLE rectangle
+
+actor User as A1
+actor Theater_Manager as A2
+
+usecase "Search and Filter Movies" as FR1
+usecase "View Movie Details" as FR1_1
+usecase "View Showtimes and Theaters" as FR2
+usecase "Book Tickets" as FR3
+usecase "View Seating Availability" as FR3_1
+usecase "Make Payment" as FR4
+usecase "View Booking Details" as FR5
+usecase "Cancel Booking" as FR5_1
+usecase "Receive Notifications" as FR6
+usecase "Rate and Review Movies" as FR7
+usecase "Redeem Promo Codes" as FR9
+usecase "Update Movie Listings and Showtimes" as FR8
+
+A1 --> FR1
+A1 --> FR2
+A1 --> FR3
+A1 --> FR4
+A1 --> FR5
+A1 --> FR6
+A1 --> FR7
+A1 --> FR9
+A2 --> FR8
+
+FR1 -[dotted]-> FR1_1 : "<extend>"
+FR3 -[dotted]-> FR3_1 : "<include>"
+FR5 -[dotted]-> FR5_1 : "<extend>"
+@enduml''' 
+
+*Actor-action pair and functional requirements*
+
+ Note- use the syntax of the above given example, or else the code will give syntax errors
